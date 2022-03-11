@@ -55,11 +55,11 @@ def main():
         
         model.load_state_dict(checkpoint['state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer'])
-        input_size = checkpoint[args.input_size]
-        output_size = checkpoint[args.output_size]
-        hidden_layers = checkpoint[args.hidden_layer1, args.hidden_layer2]
-        epochs = checkpoint[args.epochs]
-        learn_rate = checkpoint[args.learning_rate]
+        input_size = checkpoint['input_size']
+        output_size = checkpoint['output_size']
+        hidden_layers = checkpoint['hidden_layers']
+        epochs = checkpoint['epochs']
+        learn_rate = checkpoint['learn_rate']
         print_every = checkpoint['print_every']
         
         return model
@@ -108,7 +108,7 @@ def main():
             return ax
     
     # Class Prediction
-    def predict(image_path, model, args.topk):
+    def predict(image_path, model, topk=5):
         ''' 
         Predict the class (or classes) of an image using a trained deep learning model.
         '''
