@@ -108,7 +108,7 @@ def main():
             return ax
     
     # Class Prediction
-    def predict(image_path, model, topk=5):
+    def predict(image_path, model, args.topk):
         ''' 
         Predict the class (or classes) of an image using a trained deep learning model.
         '''
@@ -132,7 +132,7 @@ def main():
     image_path = args.image_path
     flower_img_number = image_path.split('/')[2]
     flower_name = cat_to_name[flower_img_number]
-    top_probs, top_classes = predict(image_path, model)
+    top_probs, top_classes = predict(image_path, model, args.topk)
     class_names = [cat_to_name[c1] for c1 in classes]
     
     print(top_probs)
